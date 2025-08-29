@@ -35,8 +35,8 @@ public class Template {
 
             // Iterasi melalui bilangan ganjil pertama hingga batas N
             int count = 0; // Jumlah bilangan ganjil yang merupakan kelipatan K
-            for (int j = 1; count < n; j += 2) { // Bilangan ganjil bertambah 2 setiap iterasi
-                if (j % k == 0) { // Periksa apakah bilangan ganjil adalah kelipatan K
+            for (int j = 1; count < n; j += 2) { // Bilangan ganjil bertambah 2 di tiap iterasi
+                if (j % k == 0) { // Periksa kalo bilangan ganjil adalah kelipatan K apa bukan
                     sum += j;
                 }
                 count++;
