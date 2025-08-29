@@ -26,23 +26,20 @@ public class Template {
             K[i] = in.nextInteger();
         }
 
-        // TODO: Write your code here
-
         for (int i = 0; i < T; i++) {
             int n = N[i];
             int k = K[i];
-            
 
-            // Menggunakan rumus jumlah deret aritmatika
-            long a = k;
-            long b = 2 * k;
-            long sum = n * (2 * a + b * (n - 1)) / 2;
+            // hitung jumlah bilangan ganjil yang merupakan kelipatan K hingga N
+            long sum = 0;
+            for (int j = k; j <= n; j += k) {
+                if (j % 2 != 0) { // mastiin bilangan ganjil
+                    sum += j;
+                }
+            }
 
             out.println(sum);
         }
-
-        // ! Hint:  Note that to get the full score, you might need to edit other parts of the code as well
-        // To print the output, use: out.println();
 
         // close/flush the output
         out.close();
