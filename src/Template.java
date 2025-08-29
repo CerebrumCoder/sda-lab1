@@ -29,28 +29,17 @@ public class Template {
         // TODO: Write your code here
 
         for (int i = 0; i < T; i++) {
-            // Setiap angka dalam array N dicek sesuai indeksnya
             int n = N[i];
-
-            // Setiap angka dalam array K dicek sesuai indeksnya
             int k = K[i];
             long sum = 0;
 
-            // For loop kedua untuk mencari bilangan ganjil dari 1 sampai 2 x n - 1. Dan bertambah 2 setiap tambah indeks
-            // Cek kalo j itu adalah kelipatan k maka tambah ke variabel sum. Kalo tidak maka tidak ditambah
-            
-            // Hitung jumlah bilangan ganjil pertama
-            int maxOdd = 2 * n - 1; // Bilangan ganjil terbesar yang maxOdd jadi ujung rentang
-            int firstOddMultiple = k; // Kelipatan ganjil pertama dari K
-            int difference = 2 * k; // Selisih antar kelipatan ganjil dari K
-            int count = (maxOdd >= firstOddMultiple) ? (maxOdd - firstOddMultiple) / difference + 1 : 0; // Jumlah kelipatan ganjil dalam rentang sammpe maxOdd
-
-            // Batasi jumlah kelipatan ganjil hingga maksimal N
-            count = Math.min(count, n / k);
-
-            if (count > 0) {
-
-                sum = (long) count * (2L * firstOddMultiple + (count - 1L) * difference) / 2L;
+            // Iterasi melalui bilangan ganjil pertama hingga batas N
+            int count = 0; // Jumlah bilangan ganjil yang merupakan kelipatan K
+            for (int j = 1; count < n; j += 2) { // Bilangan ganjil bertambah 2 setiap iterasi
+                if (j % k == 0) { // Periksa apakah bilangan ganjil adalah kelipatan K
+                    sum += j;
+                }
+                count++;
             }
 
             out.println(sum);
