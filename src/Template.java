@@ -26,20 +26,27 @@ public class Template {
             K[i] = in.nextInteger();
         }
 
+        // TODO: Write your code here
+
         for (int i = 0; i < T; i++) {
             int n = N[i];
             int k = K[i];
-
-            // hitung jumlah bilangan ganjil yang merupakan kelipatan K hingga N
             long sum = 0;
-            for (int j = k; j <= n; j += k) {
-                if (j % 2 != 0) { // mastiin bilangan ganjil
+
+            // Iterasi melalui bilangan ganjil pertama hingga batas N
+            int count = 0; // Jumlah bilangan ganjil yang merupakan kelipatan K
+            for (int j = 1; count < n; j += 2) { // Bilangan ganjil bertambah 2 di tiap iterasi
+                if (j % k == 0) { // Periksa kalo bilangan ganjil adalah kelipatan K apa bukan
                     sum += j;
                 }
+                count++;
             }
 
             out.println(sum);
         }
+
+        // ! Hint:  Note that to get the full score, you might need to edit other parts of the code as well
+        // To print the output, use: out.println();
 
         // close/flush the output
         out.close();
