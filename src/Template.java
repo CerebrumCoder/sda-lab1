@@ -43,7 +43,10 @@ public class Template {
             int maxOdd = 2 * n - 1; // Bilangan ganjil terbesar yang maxOdd jadi ujung rentang
             int firstOddMultiple = k; // Kelipatan ganjil pertama dari K
             int difference = 2 * k; // Selisih antar kelipatan ganjil dari K
-            int count = maxOdd / firstOddMultiple; // Jumlah kelipatan ganjil dalam rentang sammpe maxOdd
+            int count = (maxOdd >= firstOddMultiple) ? (maxOdd - firstOddMultiple) / difference + 1 : 0; // Jumlah kelipatan ganjil dalam rentang sammpe maxOdd
+
+            // Batasi jumlah kelipatan ganjil hingga maksimal N
+            count = Math.min(count, n / k);
 
             if (count > 0) {
 
