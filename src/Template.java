@@ -27,6 +27,22 @@ public class Template {
         }
 
         // TODO: Write your code here
+
+        for (int i = 0; i < T; i++) {
+            int n = N[i];
+            int k = K[i];
+            long sum = 0;
+
+            int firstOdd = k;
+            int difference = 2 * k;
+            int count = n / k;
+
+            if (count > 0) {
+                sum = (long) count * (2L * firstOdd + (count - 1L) * difference) / 2L;
+            }
+            out.println(sum);
+        }
+
         // ! Hint:  Note that to get the full score, you might need to edit other parts of the code as well
         // To print the output, use: out.println();
 
