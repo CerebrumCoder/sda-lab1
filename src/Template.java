@@ -33,13 +33,13 @@ public class Template {
             int k = K[i];
             long sum = 0;
 
-            int firstOdd = k;
-            int difference = 2 * k;
-            int count = n / k;
-
-            if (count > 0) {
-                sum = (long) count * (2L * firstOdd + (count - 1L) * difference) / 2L;
+            // Brute force: Check each odd number up to 2N-1
+            for (int j = 1; j <= 2 * n - 1; j += 2) {
+                if (j % k == 0) {
+                    sum += j;
+                }
             }
+
             out.println(sum);
         }
 
