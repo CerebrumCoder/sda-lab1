@@ -38,10 +38,16 @@ public class Template {
 
             // For loop kedua untuk mencari bilangan ganjil dari 1 sampai 2 x n - 1. Dan bertambah 2 setiap tambah indeks
             // Cek kalo j itu adalah kelipatan k maka tambah ke variabel sum. Kalo tidak maka tidak ditambah
-            for (int j = 1; j <= 2 * n - 1; j += 2) {
-                if (j % k == 0) {
-                    sum += j;
-                }
+            
+            // Hitung jumlah bilangan ganjil pertama
+            int maxOdd = 2 * n - 1; // Bilangan ganjil terbesar yang maxOdd jadi ujung rentang
+            int firstOddMultiple = k; // Kelipatan ganjil pertama dari K
+            int difference = 2 * k; // Selisih antar kelipatan ganjil dari K
+            int count = maxOdd / firstOddMultiple; // Jumlah kelipatan ganjil dalam rentang sammpe maxOdd
+
+            if (count > 0) {
+
+                sum = (long) count * (2L * firstOddMultiple + (count - 1L) * difference) / 2L;
             }
 
             out.println(sum);
