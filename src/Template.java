@@ -29,11 +29,15 @@ public class Template {
         // TODO: Write your code here
 
         for (int i = 0; i < T; i++) {
+            // Setiap angka dalam array N dicek sesuai indeksnya
             int n = N[i];
+
+            // Setiap angka dalam array K dicek sesuai indeksnya
             int k = K[i];
             long sum = 0;
 
-            // Brute force: Check each odd number up to 2N-1
+            // For loop kedua untuk mencari bilangan ganjil dari 1 sampai 2 x n - 1. Dan bertambah 2 setiap tambah indeks
+            // Cek kalo j itu adalah kelipatan k maka tambah ke variabel sum. Kalo tidak maka tidak ditambah
             for (int j = 1; j <= 2 * n - 1; j += 2) {
                 if (j % k == 0) {
                     sum += j;
