@@ -31,16 +31,21 @@ public class Template {
         for (int i = 0; i < T; i++) {
             int n = N[i];
             int k = K[i];
-            long sum = 0;
 
             // Iterasi melalui bilangan ganjil pertama hingga batas N
-            int count = 0; // Jumlah bilangan ganjil yang merupakan kelipatan K
-            for (int j = 1; count < n; j += 2) { // Bilangan ganjil bertambah 2 di tiap iterasi
-                if (j % k == 0) { // Periksa kalo bilangan ganjil adalah kelipatan K apa bukan
-                    sum += j;
-                }
-                count++;
-            }
+            long a = k; // Suku awal
+            long b = 2 * k; // Selisih
+            long count = Math.floorDiv(n, k);
+
+
+            long sum = count * ((2L * a) + b * (count - 1L)) / 2L;
+//            int count = 0; // Jumlah bilangan ganjil yang merupakan kelipatan K
+//            for (int j = 1; count < n; j += 2) { // Bilangan ganjil bertambah 2 di tiap iterasi
+//                if (j % k == 0) { // Periksa kalo bilangan ganjil adalah kelipatan K apa bukan
+//                    sum += j;
+//                }
+//                count++;
+//            }
 
             out.println(sum);
         }
